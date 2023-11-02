@@ -1,0 +1,36 @@
+server:
+  port: "7024"
+jwt-issuer: "http://127.0.0.1:7000"
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://127.0.0.1:7000"
+  data:
+    rest:
+      base-path: "/api"
+  datasource:
+    driver-class-name: "org.postgresql.Driver"
+    url: "jdbc:postgresql://127.0.0.1:5432/k24_data"
+    username: "postgres"
+    password: "msrfyl"
+  jpa:
+    show-sql: "false"
+    open-in-view: "false"
+    properties:
+      hibernate:
+        format_sql: "true"
+    hibernate:
+      ddl-auto: "update"
+  main:
+    allow-circular-references: "true"
+logging:
+  level:
+    root: "INFO"
+  file:
+    name: "logs/resource/app.log"
+  logback.rollingpolicy:
+    file-name-pattern: "logs/resource/app-%d{yyyy-MM-dd}.%i.log"
+    max-file-size: "1MB"
+    total-size-cap: "128MB"
